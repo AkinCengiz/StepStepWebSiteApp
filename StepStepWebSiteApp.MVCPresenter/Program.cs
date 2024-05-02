@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using StepStepWebSiteApp.DataAccess.Concrete.Contexts;
+
 namespace StepStepWebSiteApp.MVCPresenter;
 
 public class Program
@@ -8,6 +11,11 @@ public class Program
 
 		// Add services to the container.
 		builder.Services.AddControllersWithViews();
+
+		builder.Services.AddDbContext<StepStepWebSiteContext>(options =>
+		{
+			options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnHome"));
+		});
 
 		var app = builder.Build();
 
