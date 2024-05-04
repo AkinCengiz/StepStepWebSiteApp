@@ -8,7 +8,7 @@ using StepStepWebSiteApp.DataAccess.Abstract;
 using StepStepWebSiteApp.Entity.Entities;
 
 namespace StepStepWebSiteApp.Business.Concrete;
-internal class MessageManager : IMessageService
+public class MessageManager : IMessageService
 {
 	private readonly IMessageDal _messageDal;
 
