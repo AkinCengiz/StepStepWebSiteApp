@@ -1,0 +1,30 @@
+﻿@model List<Contact>
+
+
+            @foreach (var contact in Model)
+	        {
+		        <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+			        <div class="mt-3 px-1">
+				        <div class="h5">@contact.Title</div>
+				        <p>@contact.Description </p>
+				        <p>Görüşmek dileğiyle...</p>
+			        </div>
+			        <div class="mt-53 px-1">
+				        <div class="row">
+					        <div class="col-sm-2">
+						        <div class="pb-1">Eposta :</div>
+					        </div>
+					        <div class="col-sm-10">
+						        <div class="pb-1 fw-bolder">@contact.Email</div>
+					        </div>
+					        <div class="col-sm-2">
+						        <div class="pb-1">Telefon :</div>
+					        </div>
+					        <div class="col-sm-10">
+						        <div class="pb-1 fw-bolder">@contact.Phone</div>
+					        </div>
+				        </div>
+			        </div>
+		        </div>
+	        }
+            

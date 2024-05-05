@@ -10,7 +10,7 @@ public class About : BaseModel
 {
 	public string Title { get; set; }
 	public string Description { get; set; }
-	public byte Age { get; set; }
+	public DateTime BirthTime { get; set; }
 	public string Email { get; set; }
 	public string Phone { get; set; }
 	public string Address { get; set; }

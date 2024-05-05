@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StepStepWebSiteApp.DataAccess.Concrete.Contexts;
 
@@ -11,9 +12,11 @@ using StepStepWebSiteApp.DataAccess.Concrete.Contexts;
 namespace StepStepWebSiteApp.DataAccess.Migrations
 {
     [DbContext(typeof(StepStepWebSiteContext))]
-    partial class StepStepWebSiteContextModelSnapshot : ModelSnapshot
+    [Migration("20240505123811_NewColumnAddedToPortfoliosTable")]
+    partial class NewColumnAddedToPortfoliosTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,7 +178,7 @@ namespace StepStepWebSiteApp.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
@@ -190,10 +193,6 @@ namespace StepStepWebSiteApp.DataAccess.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("SubTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()

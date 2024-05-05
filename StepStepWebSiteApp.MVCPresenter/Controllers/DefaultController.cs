@@ -1,11 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StepStepWebSiteApp.Business.Abstract;
 using StepStepWebSiteApp.DataAccess.Concrete.Contexts;
+using StepStepWebSiteApp.Entity.Entities;
 
 namespace StepStepWebSiteApp.MVCPresenter.Controllers;
 public class DefaultController : Controller
-{
-   public IActionResult Index()
+{ 
+	private readonly IMessageService _messageService;
+
+	public DefaultController(IMessageService messageService)
+	{
+		_messageService = messageService;
+	}
+
+	public IActionResult Index()
 	{
 		return View();
 	}
@@ -25,4 +33,12 @@ public class DefaultController : Controller
         return PartialView();
     }
 
+    [HttpPost]
+    public IActionResult SendMessage(Message message)
+    {
+	    
+		_messageService.Add(message);
+		return RedirectToAction("Index");
+		
+	}
 }
